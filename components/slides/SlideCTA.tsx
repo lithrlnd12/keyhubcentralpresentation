@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import AnimatedElement from "@/components/ui/AnimatedElement";
 import SlideLayout, { Card } from "@/components/ui/SlideLayout";
@@ -16,9 +17,13 @@ export default function SlideCTA() {
       <div className="flex flex-col items-center justify-center text-center max-w-4xl mx-auto flex-1">
         {/* Logo */}
         <AnimatedElement delay={0} direction="scale">
-          <div className="w-20 h-20 rounded-2xl bg-gold flex items-center justify-center mb-8 animate-float">
-            <span className="text-3xl font-bold text-bg-dark">KH</span>
-          </div>
+          <Image
+            src="/logo.png"
+            alt="KeyHub Central"
+            width={140}
+            height={140}
+            className="mb-6 animate-float"
+          />
         </AnimatedElement>
 
         {/* Title */}
