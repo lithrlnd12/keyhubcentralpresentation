@@ -60,18 +60,22 @@ export default function Presentation({ children }: PresentationProps) {
   // Touch / swipe support
   useEffect(() => {
     let touchStartX = 0;
+    let touchStartY = 0;
     const handleTouchStart = (e: TouchEvent) => {
       touchStartX = e.touches[0].clientX;
+      touchStartY = e.touches[0].clientY;
     };
     const handleTouchEnd = (e: TouchEvent) => {
-      const diff = touchStartX - e.changedTouches[0].clientX;
-      if (Math.abs(diff) > 50) {
-        if (diff > 0) nextSlide();
+      const diffX = touchStartX - e.changedTouches[0].clientX;
+      const diffY = touchStartY - e.changedTouches[0].clientY;
+      // Only trigger if horizontal swipe is dominant
+      if (Math.abs(diffX) > 50 && Math.abs(diffX) > Math.abs(diffY) * 1.5) {
+        if (diffX > 0) nextSlide();
         else prevSlide();
       }
     };
-    window.addEventListener("touchstart", handleTouchStart);
-    window.addEventListener("touchend", handleTouchEnd);
+    window.addEventListener("touchstart", handleTouchStart, { passive: true });
+    window.addEventListener("touchend", handleTouchEnd, { passive: true });
     return () => {
       window.removeEventListener("touchstart", handleTouchStart);
       window.removeEventListener("touchend", handleTouchEnd);
@@ -126,45 +130,45 @@ export default function Presentation({ children }: PresentationProps) {
         </AnimatePresence>
       </div>
 
-      {/* Bottom navigation bar */}
+      {/* Bottom navigation bar — compact on mobile */}
       <div className="absolute bottom-0 left-0 right-0 z-50">
         {/* Gold accent line */}
         <div className="h-[2px] bg-gradient-to-r from-transparent via-gold to-transparent" />
 
-        <div className="flex items-center justify-between px-6 py-3 bg-bg-darker/90 backdrop-blur-md">
+        <div className="flex items-center justify-between px-2 sm:px-6 py-2 sm:py-3 bg-bg-darker/90 backdrop-blur-md">
           {/* Prev button */}
           <button
             onClick={prevSlide}
             disabled={currentSlide === 0}
-            className="flex items-center gap-1 px-3 py-1.5 rounded-lg text-sm text-white/60 hover:text-white hover:bg-white/5 transition-all disabled:opacity-20 disabled:cursor-not-allowed"
+            className="flex items-center gap-1 px-2 sm:px-3 py-1.5 rounded-lg text-sm text-white/60 hover:text-white hover:bg-white/5 transition-all disabled:opacity-20 disabled:cursor-not-allowed"
           >
             <ChevronLeft size={16} />
             <span className="hidden sm:inline">Previous</span>
           </button>
 
-          {/* Slide indicators */}
-          <div className="flex items-center gap-1.5">
+          {/* Slide indicators — dots on mobile, wider on desktop */}
+          <div className="flex items-center gap-1 sm:gap-1.5">
             {Array.from({ length: totalSlides }).map((_, i) => (
               <button
                 key={i}
                 onClick={() => goToSlide(i)}
                 className={`transition-all duration-300 rounded-full ${
                   i === currentSlide
-                    ? "w-8 h-2 bg-gold"
-                    : "w-2 h-2 bg-white/20 hover:bg-white/40"
+                    ? "w-5 sm:w-8 h-1.5 sm:h-2 bg-gold"
+                    : "w-1.5 sm:w-2 h-1.5 sm:h-2 bg-white/20 hover:bg-white/40"
                 }`}
               />
             ))}
           </div>
 
           {/* Right controls */}
-          <div className="flex items-center gap-2">
-            <span className="text-xs text-white/40 font-mono mr-2">
-              {currentSlide + 1} / {totalSlides}
+          <div className="flex items-center gap-1 sm:gap-2">
+            <span className="text-[10px] sm:text-xs text-white/40 font-mono mr-1 sm:mr-2">
+              {currentSlide + 1}/{totalSlides}
             </span>
             <button
               onClick={toggleFullscreen}
-              className="p-1.5 rounded-lg text-white/60 hover:text-white hover:bg-white/5 transition-all"
+              className="hidden sm:block p-1.5 rounded-lg text-white/60 hover:text-white hover:bg-white/5 transition-all"
             >
               {isFullscreen ? (
                 <Minimize2 size={16} />
@@ -175,7 +179,7 @@ export default function Presentation({ children }: PresentationProps) {
             <button
               onClick={nextSlide}
               disabled={currentSlide === totalSlides - 1}
-              className="flex items-center gap-1 px-3 py-1.5 rounded-lg text-sm text-white/60 hover:text-white hover:bg-white/5 transition-all disabled:opacity-20 disabled:cursor-not-allowed"
+              className="flex items-center gap-1 px-2 sm:px-3 py-1.5 rounded-lg text-sm text-white/60 hover:text-white hover:bg-white/5 transition-all disabled:opacity-20 disabled:cursor-not-allowed"
             >
               <span className="hidden sm:inline">Next</span>
               <ChevronRight size={16} />

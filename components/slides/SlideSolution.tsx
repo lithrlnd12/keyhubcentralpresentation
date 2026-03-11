@@ -71,7 +71,7 @@ export default function SlideSolution() {
         </SlideSubtitle>
       </AnimatedElement>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mt-8 flex-1">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-3 sm:gap-5 mt-4 sm:mt-8 flex-1">
         {pillars.map((p, i) => (
           <AnimatedElement key={i} delay={0.3 + i * 0.1} direction="up" className="flex">
             <motion.div
@@ -80,11 +80,11 @@ export default function SlideSolution() {
               className="flex-1"
             >
               <Card gold className="flex-1 h-full flex flex-col">
-                <div className="flex items-center gap-3 mb-1">
-                  <span className="text-3xl">{p.icon}</span>
-                  <h3 className="text-2xl md:text-3xl font-bold text-white">{p.title}</h3>
+                <div className="flex items-center gap-2 sm:gap-3 mb-1">
+                  <span className="text-xl sm:text-3xl">{p.icon}</span>
+                  <h3 className="text-lg sm:text-2xl md:text-3xl font-bold text-white">{p.title}</h3>
                 </div>
-                <span className="text-sm font-bold tracking-[0.15em] text-gold uppercase block mb-5">
+                <span className="text-xs sm:text-sm font-bold tracking-[0.15em] text-gold uppercase block mb-3 sm:mb-5">
                   {p.subtitle}
                 </span>
                 <BulletList items={p.bullets} className="flex-1" />
@@ -95,9 +95,9 @@ export default function SlideSolution() {
       </div>
 
       <AnimatedElement delay={0.7} direction="up">
-        <Card gold className="mt-4">
-          <p className="text-lg md:text-xl text-white/50">
-            <span className="text-2xl mr-2">📱</span>
+        <Card gold className="mt-3 sm:mt-4">
+          <p className="text-sm sm:text-lg md:text-xl text-white/50">
+            <span className="text-xl sm:text-2xl mr-2">📱</span>
             <span className="text-gold font-semibold">Built for mobile.</span>{" "}
             Your team works from trucks and jobsites, not desks. KeyHub is a full PWA — works
             like a native app on any phone.

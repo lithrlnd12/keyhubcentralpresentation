@@ -22,8 +22,8 @@ export default function SlideTeamInventory() {
         </SlideTitle>
       </AnimatedElement>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 mt-8 flex-1">
-        <div className="space-y-4">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-3 sm:gap-5 mt-4 sm:mt-8 flex-1">
+        <div className="space-y-3 sm:space-y-4">
           <AnimatedElement delay={0.2} direction="left" className="flex">
             <Card className="h-auto flex-1 flex flex-col">
               <CardTitle>👷 Contractor Management</CardTitle>
@@ -56,7 +56,7 @@ export default function SlideTeamInventory() {
           </AnimatedElement>
         </div>
 
-        <div className="space-y-4">
+        <div className="space-y-3 sm:space-y-4">
           <AnimatedElement delay={0.25} direction="right" className="flex">
             <Card className="h-auto flex-1 flex flex-col">
               <CardTitle>📦 Inventory Tracking</CardTitle>

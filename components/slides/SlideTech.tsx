@@ -7,7 +7,6 @@ import SlideLayout, {
   SlideTitle,
   SlideSubtitle,
   Card,
-  CardTitle,
   BulletList,
 } from "@/components/ui/SlideLayout";
 
@@ -74,13 +73,13 @@ export default function SlideTech() {
         </SlideSubtitle>
       </AnimatedElement>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mt-8 flex-1">
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-5 mt-4 sm:mt-8 flex-1">
         {techCards.map((t, i) => (
           <AnimatedElement key={i} delay={0.3 + i * 0.1} direction="up" className="flex">
             <Card className="h-full flex-1 flex flex-col">
-              <div className="flex items-center gap-2 mb-3">
-                <span className="text-xl">{t.icon}</span>
-                <span className="text-lg font-semibold text-white">{t.title}</span>
+              <div className="flex items-center gap-2 mb-2 sm:mb-3">
+                <span className="text-lg sm:text-xl">{t.icon}</span>
+                <span className="text-base sm:text-lg font-semibold text-white">{t.title}</span>
               </div>
               <BulletList items={t.bullets} />
             </Card>
@@ -89,7 +88,7 @@ export default function SlideTech() {
       </div>
 
       {/* Badges */}
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-5">
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-4 mt-3 sm:mt-5">
         {badges.map((b, i) => (
           <AnimatedElement key={i} delay={0.65 + i * 0.08} direction="scale" className="flex">
             <motion.div
@@ -98,9 +97,9 @@ export default function SlideTech() {
               className="flex-1"
             >
               <Card className="text-center flex-1 flex flex-col">
-                <div className="text-2xl mb-1">{b.icon}</div>
-                <div className="text-[15px] font-semibold text-white">{b.label}</div>
-                <div className="text-xs text-white/30 mt-0.5">{b.desc}</div>
+                <div className="text-lg sm:text-2xl mb-1">{b.icon}</div>
+                <div className="text-sm sm:text-[15px] font-semibold text-white">{b.label}</div>
+                <div className="text-[10px] sm:text-xs text-white/30 mt-0.5">{b.desc}</div>
               </Card>
             </motion.div>
           </AnimatedElement>

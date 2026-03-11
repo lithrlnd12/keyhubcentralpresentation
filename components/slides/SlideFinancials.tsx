@@ -28,8 +28,8 @@ export default function SlideFinancials() {
         </SlideTitle>
       </AnimatedElement>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 mt-8 flex-1">
-        <div className="space-y-4">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-3 sm:gap-5 mt-4 sm:mt-8 flex-1">
+        <div className="space-y-3 sm:space-y-4">
           <AnimatedElement delay={0.2} direction="left" className="flex">
             <Card className="flex-1 flex flex-col">
               <CardTitle>💵 Financial Command Center</CardTitle>
@@ -62,7 +62,7 @@ export default function SlideFinancials() {
           </AnimatedElement>
         </div>
 
-        <div className="space-y-4">
+        <div className="space-y-3 sm:space-y-4">
           <AnimatedElement delay={0.25} direction="right" className="flex">
             <Card className="flex-1 flex flex-col">
               <CardTitle>📈 Lead Management</CardTitle>
@@ -82,15 +82,15 @@ export default function SlideFinancials() {
           <AnimatedElement delay={0.4} direction="right" className="flex">
             <Card gold className="flex-1 flex flex-col">
               <CardTitle>KeyHub Central Plans</CardTitle>
-              <div className="grid grid-cols-3 gap-3 mt-3">
+              <div className="grid grid-cols-3 gap-2 sm:gap-3 mt-2 sm:mt-3">
                 {tiers.map((t, i) => (
-                  <div key={i} className={`text-center rounded-lg p-2 ${t.popular ? "ring-1 ring-gold/30 bg-gold/5" : ""}`}>
-                    {t.popular && <div className="text-[10px] font-bold text-gold uppercase tracking-wider mb-1">Most Popular</div>}
-                    <div className="text-[15px] font-semibold text-white">{t.name}</div>
-                    <div className="text-2xl font-bold text-gold mt-1">{t.price}</div>
-                    <div className="text-xs text-white/30">{t.period}</div>
-                    <div className="text-xs text-white/40 mt-1">{t.seats}</div>
-                    <div className="text-[10px] text-white/25 mt-0.5">+ {t.onboarding} onboarding</div>
+                  <div key={i} className={`text-center rounded-lg p-1.5 sm:p-2 ${t.popular ? "ring-1 ring-gold/30 bg-gold/5" : ""}`}>
+                    {t.popular && <div className="text-[8px] sm:text-[10px] font-bold text-gold uppercase tracking-wider mb-1">Most Popular</div>}
+                    <div className="text-xs sm:text-[15px] font-semibold text-white">{t.name}</div>
+                    <div className="text-lg sm:text-2xl font-bold text-gold mt-1">{t.price}</div>
+                    <div className="text-[10px] sm:text-xs text-white/30">{t.period}</div>
+                    <div className="text-[10px] sm:text-xs text-white/40 mt-1">{t.seats}</div>
+                    <div className="text-[8px] sm:text-[10px] text-white/25 mt-0.5">+ {t.onboarding} onboarding</div>
                   </div>
                 ))}
               </div>

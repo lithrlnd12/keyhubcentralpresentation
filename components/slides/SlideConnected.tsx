@@ -85,25 +85,25 @@ export default function SlideConnected() {
         </SlideSubtitle>
       </AnimatedElement>
 
-      <div className="flex flex-col justify-evenly mt-8 flex-1 gap-2">
+      <div className="flex flex-col justify-evenly mt-4 sm:mt-8 flex-1 gap-2">
         {flowRows.map((row, ri) => (
           <AnimatedElement key={ri} delay={0.3 + ri * 0.12} direction="left">
-            <div className="flex items-center gap-4">
+            <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-4">
               {/* Row label with icon */}
-              <div className="w-40 shrink-0 text-right flex items-center justify-end gap-3">
-                <span className="text-2xl">{row.icon}</span>
-                <span className="text-sm md:text-base font-bold tracking-[0.1em] text-white/40 uppercase">
+              <div className="flex sm:w-40 shrink-0 sm:text-right items-center sm:justify-end gap-2 sm:gap-3 mb-1 sm:mb-0">
+                <span className="text-lg sm:text-2xl">{row.icon}</span>
+                <span className="text-xs sm:text-sm md:text-base font-bold tracking-[0.1em] text-white/40 uppercase">
                   {row.label}
                 </span>
               </div>
 
               {/* Steps */}
-              <div className="flex items-center gap-3 flex-wrap flex-1">
+              <div className="flex items-center gap-1 sm:gap-3 flex-wrap flex-1">
                 {row.steps.map((step, si) => {
                   const c = colorMap[step.color];
                   const isGold = step.color === "gold";
                   return (
-                    <div key={si} className="flex items-center gap-3">
+                    <div key={si} className="flex items-center gap-1 sm:gap-3">
                       <motion.div
                         initial={{ opacity: 0, scale: 0.8, y: 10 }}
                         animate={{ opacity: 1, scale: 1, y: 0 }}
@@ -113,7 +113,7 @@ export default function SlideConnected() {
                           stiffness: 200,
                           damping: 15,
                         }}
-                        className={`px-5 py-3 rounded-xl text-base md:text-lg font-medium border ${c.bg} ${c.border} ${c.text} shadow-md ${c.glow} ${
+                        className={`px-2 sm:px-5 py-1.5 sm:py-3 rounded-lg sm:rounded-xl text-xs sm:text-base md:text-lg font-medium border ${c.bg} ${c.border} ${c.text} shadow-md ${c.glow} ${
                           isGold ? "font-bold ring-1 ring-gold/20" : ""
                         }`}
                       >
@@ -124,7 +124,7 @@ export default function SlideConnected() {
                           initial={{ opacity: 0, x: -5 }}
                           animate={{ opacity: 1, x: 0 }}
                           transition={{ delay: 0.5 + ri * 0.12 + si * 0.08 }}
-                          className={`text-xl font-bold ${arrowColors[row.steps[si].color] || "text-gold/40"}`}
+                          className={`text-xs sm:text-xl font-bold ${arrowColors[row.steps[si].color] || "text-gold/40"}`}
                         >
                           →
                         </motion.span>
@@ -139,8 +139,8 @@ export default function SlideConnected() {
       </div>
 
       <AnimatedElement delay={0.9} direction="up">
-        <Card gold className="mt-4">
-          <p className="text-lg md:text-xl text-white/50 text-center">
+        <Card gold className="mt-3 sm:mt-4">
+          <p className="text-sm sm:text-lg md:text-xl text-white/50 text-center">
             <span className="text-gold font-semibold">Zero re-entry.</span> Customer info from the
             AI call flows into the lead → contract → job → invoice → review request —
             automatically.
