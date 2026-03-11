@@ -86,20 +86,20 @@ export default function SlideRoles() {
         </SlideSubtitle>
       </AnimatedElement>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-8 flex-1">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mt-8 flex-1">
         {roles.map((r, i) => (
           <AnimatedElement key={i} delay={0.25 + i * 0.06} direction="scale" className="flex">
             <motion.div
               whileHover={{ scale: 1.03, y: -2 }}
               transition={{ type: "spring", stiffness: 300 }}
-              className={`relative rounded-xl p-4 border ${r.border} ${r.bg} h-full flex-1 flex flex-col`}
+              className={`relative rounded-xl p-5 border ${r.border} ${r.bg} h-full flex-1 flex flex-col`}
             >
               {/* Left accent bar */}
               <div
-                className={`absolute left-0 top-4 bottom-4 w-[3px] rounded-full ${r.color.replace("text-", "bg-")}`}
+                className={`absolute left-0 top-5 bottom-5 w-[4px] rounded-full ${r.color.replace("text-", "bg-")}`}
               />
-              <h3 className={`text-[15px] font-semibold ${r.color} mb-2 pl-3`}>{r.title}</h3>
-              <p className="text-sm text-white/40 leading-relaxed pl-3">{r.desc}</p>
+              <h3 className={`text-xl md:text-2xl font-bold ${r.color} mb-3 pl-4`}>{r.title}</h3>
+              <p className="text-base md:text-lg text-white/45 leading-relaxed pl-4">{r.desc}</p>
             </motion.div>
           </AnimatedElement>
         ))}
