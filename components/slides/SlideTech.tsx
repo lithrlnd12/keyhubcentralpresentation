@@ -1,0 +1,98 @@
+"use client";
+
+import AnimatedElement from "@/components/ui/AnimatedElement";
+import SlideLayout, {
+  SectionLabel,
+  SlideTitle,
+  SlideSubtitle,
+  Card,
+  CardTitle,
+  BulletList,
+} from "@/components/ui/SlideLayout";
+
+const techCards = [
+  {
+    title: "Platform",
+    bullets: [
+      "Progressive Web App (any device)",
+      "Real-time data sync across all users",
+      "Mobile-first responsive design",
+      "Enterprise-grade security",
+      "99.9% uptime (Vercel + Firebase)",
+    ],
+  },
+  {
+    title: "Integrations",
+    bullets: [
+      "Google Calendar (2-way sync)",
+      "Gmail API (email automation)",
+      "SMS / Twilio (messaging)",
+      "Vapi AI (voice calls)",
+      "Google Drive (document storage)",
+    ],
+  },
+  {
+    title: "AI Features",
+    bullets: [
+      "Voice AI receptionist (24/7)",
+      "Call analysis & lead scoring",
+      "SMS conversation analysis",
+      "Receipt OCR parsing",
+      "AI shopping list generation",
+      "Contractor recommendations",
+    ],
+  },
+];
+
+const badges = [
+  { icon: "📱", label: "PWA", desc: "Install like an app" },
+  { icon: "⚡", label: "Real-Time", desc: "Live data sync" },
+  { icon: "🔐", label: "Secure", desc: "Firebase Auth + RBAC" },
+  { icon: "🌐", label: "Cloud Native", desc: "Auto-scaling" },
+];
+
+export default function SlideTech() {
+  return (
+    <SlideLayout>
+      <AnimatedElement delay={0}>
+        <SectionLabel>BUILT TO LAST</SectionLabel>
+      </AnimatedElement>
+      <AnimatedElement delay={0.1}>
+        <SlideTitle>
+          <span className="text-white">Enterprise Tech. </span>
+          <span className="text-gold">Contractor Price.</span>
+        </SlideTitle>
+      </AnimatedElement>
+      <AnimatedElement delay={0.2}>
+        <SlideSubtitle>
+          Built on the same infrastructure that powers Google, with integrations your team
+          already uses.
+        </SlideSubtitle>
+      </AnimatedElement>
+
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mt-8">
+        {techCards.map((t, i) => (
+          <AnimatedElement key={i} delay={0.3 + i * 0.1} direction="up">
+            <Card className="h-full">
+              <CardTitle>{t.title}</CardTitle>
+              <BulletList items={t.bullets} />
+            </Card>
+          </AnimatedElement>
+        ))}
+      </div>
+
+      {/* Badges */}
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-5">
+        {badges.map((b, i) => (
+          <AnimatedElement key={i} delay={0.65 + i * 0.08} direction="scale">
+            <Card className="text-center">
+              <div className="text-2xl mb-1">{b.icon}</div>
+              <div className="text-sm font-semibold text-white">{b.label}</div>
+              <div className="text-[10px] text-white/30 mt-0.5">{b.desc}</div>
+            </Card>
+          </AnimatedElement>
+        ))}
+      </div>
+    </SlideLayout>
+  );
+}
