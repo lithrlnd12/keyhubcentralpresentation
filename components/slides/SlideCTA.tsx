@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import AnimatedElement from "@/components/ui/AnimatedElement";
+import ParticleBackground from "@/components/ui/ParticleBackground";
 import SlideLayout, { Card } from "@/components/ui/SlideLayout";
 
 const timeline = [
@@ -13,8 +14,9 @@ const timeline = [
 
 export default function SlideCTA() {
   return (
-    <SlideLayout className="flex items-center justify-center">
-      <div className="flex flex-col items-center justify-center text-center max-w-4xl mx-auto flex-1">
+    <SlideLayout className="flex items-center justify-center relative overflow-hidden">
+      <ParticleBackground />
+      <div className="relative z-10 flex flex-col items-center justify-center text-center max-w-4xl mx-auto flex-1">
         {/* Logo */}
         <AnimatedElement delay={0} direction="scale">
           <Image

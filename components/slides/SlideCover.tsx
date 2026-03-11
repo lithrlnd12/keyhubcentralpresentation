@@ -2,19 +2,23 @@
 
 import Image from "next/image";
 import AnimatedElement from "@/components/ui/AnimatedElement";
+import ParticleBackground from "@/components/ui/ParticleBackground";
+import CountAnimation from "@/components/ui/CountAnimation";
 import SlideLayout from "@/components/ui/SlideLayout";
 
 const capabilities = [
-  { value: "3", label: "Business Units" },
-  { value: "8", label: "User Roles" },
+  { value: "3", label: "Business Units", numericEnd: 3 },
+  { value: "8", label: "User Roles", numericEnd: 8 },
   { value: "24/7", label: "AI Voice" },
   { value: "100%", label: "Mobile-Ready" },
 ];
 
 export default function SlideCover() {
   return (
-    <SlideLayout>
-      <div className="flex flex-col items-center justify-center flex-1 text-center max-w-5xl mx-auto">
+    <SlideLayout className="relative overflow-hidden">
+      <ParticleBackground />
+
+      <div className="relative z-10 flex flex-col items-center justify-center flex-1 text-center max-w-5xl mx-auto">
         {/* Logo */}
         <AnimatedElement delay={0} direction="scale">
           <Image
@@ -53,14 +57,21 @@ export default function SlideCover() {
           </p>
         </AnimatedElement>
 
-        {/* Capabilities row */}
+        {/* Capabilities row with animated counters */}
         <AnimatedElement delay={0.6} direction="up">
           <div className="mt-auto pt-10 border-t border-white/5 w-full">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
               {capabilities.map((c, i) => (
                 <div key={i} className="text-center">
-                  <div className="text-4xl md:text-5xl lg:text-6xl font-bold text-gold">{c.value}</div>
-                  <div className="text-sm text-white/30 mt-2 uppercase tracking-widest font-medium">{c.label}</div>
+                  <div className="text-4xl md:text-5xl lg:text-6xl font-bold text-gold">
+                    <CountAnimation
+                      value={c.value}
+                      numericEnd={c.numericEnd}
+                    />
+                  </div>
+                  <div className="text-sm text-white/30 mt-2 uppercase tracking-widest font-medium">
+                    {c.label}
+                  </div>
                 </div>
               ))}
             </div>
