@@ -10,9 +10,9 @@ import SlideLayout, {
 } from "@/components/ui/SlideLayout";
 
 const tiers = [
-  { price: "$399", period: "/mo", name: "Starter", leads: "10-15 leads" },
-  { price: "$899", period: "/mo", name: "Growth", leads: "15-25 leads" },
-  { price: "$1,499+", period: "/mo", name: "Pro", leads: "Flexible" },
+  { price: "$499", period: "/mo", name: "Starter", seats: "1–5 seats", onboarding: "$499", popular: false },
+  { price: "$1,299", period: "/mo", name: "Growth", seats: "6–20 seats", onboarding: "$1,499", popular: true },
+  { price: "$2,499", period: "/mo", name: "Business", seats: "21–50 seats", onboarding: "$2,999", popular: false },
 ];
 
 export default function SlideFinancials() {
@@ -81,14 +81,16 @@ export default function SlideFinancials() {
           </AnimatedElement>
           <AnimatedElement delay={0.4} direction="right" className="flex">
             <Card gold className="flex-1 flex flex-col">
-              <CardTitle>Subscription Tiers (Keynote Digital)</CardTitle>
+              <CardTitle>KeyHub Central Plans</CardTitle>
               <div className="grid grid-cols-3 gap-3 mt-3">
                 {tiers.map((t, i) => (
-                  <div key={i} className="text-center">
-                    <div className="text-2xl font-bold text-gold">{t.price}</div>
+                  <div key={i} className={`text-center rounded-lg p-2 ${t.popular ? "ring-1 ring-gold/30 bg-gold/5" : ""}`}>
+                    {t.popular && <div className="text-[10px] font-bold text-gold uppercase tracking-wider mb-1">Most Popular</div>}
+                    <div className="text-[15px] font-semibold text-white">{t.name}</div>
+                    <div className="text-2xl font-bold text-gold mt-1">{t.price}</div>
                     <div className="text-xs text-white/30">{t.period}</div>
-                    <div className="text-[15px] font-semibold text-white mt-1">{t.name}</div>
-                    <div className="text-xs text-white/30 mt-0.5">{t.leads}</div>
+                    <div className="text-xs text-white/40 mt-1">{t.seats}</div>
+                    <div className="text-[10px] text-white/25 mt-0.5">+ {t.onboarding} onboarding</div>
                   </div>
                 ))}
               </div>
