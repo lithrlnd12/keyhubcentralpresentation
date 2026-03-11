@@ -1,12 +1,12 @@
 "use client";
 
+import { motion } from "framer-motion";
 import AnimatedElement from "@/components/ui/AnimatedElement";
 import SlideLayout, {
   SectionLabel,
   SlideTitle,
   SlideSubtitle,
   Card,
-  CardTitle,
   BulletList,
 } from "@/components/ui/SlideLayout";
 
@@ -74,24 +74,30 @@ export default function SlideSolution() {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mt-8 flex-1">
         {pillars.map((p, i) => (
           <AnimatedElement key={i} delay={0.3 + i * 0.1} direction="up" className="flex">
-            <Card gold className="flex-1 flex flex-col">
-              <div className="flex items-center gap-2 mb-1">
-                <span className="text-xl">{p.icon}</span>
-                <CardTitle>{p.title}</CardTitle>
-              </div>
-              <span className="text-xs font-bold tracking-[0.15em] text-gold uppercase block mb-4">
-                {p.subtitle}
-              </span>
-              <BulletList items={p.bullets} className="flex-1" />
-            </Card>
+            <motion.div
+              whileHover={{ scale: 1.02, y: -3 }}
+              transition={{ type: "spring", stiffness: 300 }}
+              className="flex-1"
+            >
+              <Card gold className="flex-1 h-full flex flex-col">
+                <div className="flex items-center gap-3 mb-1">
+                  <span className="text-3xl">{p.icon}</span>
+                  <h3 className="text-2xl md:text-3xl font-bold text-white">{p.title}</h3>
+                </div>
+                <span className="text-sm font-bold tracking-[0.15em] text-gold uppercase block mb-5">
+                  {p.subtitle}
+                </span>
+                <BulletList items={p.bullets} className="flex-1" />
+              </Card>
+            </motion.div>
           </AnimatedElement>
         ))}
       </div>
 
       <AnimatedElement delay={0.7} direction="up">
         <Card gold className="mt-4">
-          <p className="text-base text-white/50">
-            <span className="text-xl mr-2">📱</span>
+          <p className="text-lg md:text-xl text-white/50">
+            <span className="text-2xl mr-2">📱</span>
             <span className="text-gold font-semibold">Built for mobile.</span>{" "}
             Your team works from trucks and jobsites, not desks. KeyHub is a full PWA — works
             like a native app on any phone.
