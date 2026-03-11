@@ -1,5 +1,6 @@
 "use client";
 
+import { motion } from "framer-motion";
 import AnimatedElement from "@/components/ui/AnimatedElement";
 import SlideLayout, { SectionLabel, SlideTitle, SlideSubtitle } from "@/components/ui/SlideLayout";
 
@@ -56,16 +57,20 @@ export default function SlideProblem() {
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-8 flex-1">
         {problems.map((p, i) => (
-          <AnimatedElement key={i} delay={0.25 + i * 0.08} direction="up">
-            <div className="flex items-start gap-4 p-5 rounded-xl bg-surface/50 border border-red-500/10 hover:border-red-500/25 transition-all group h-full">
-              <div className="w-12 h-12 rounded-xl bg-red-500/10 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
-                <span className="text-xl">{p.icon}</span>
+          <AnimatedElement key={i} delay={0.25 + i * 0.08} direction="up" className="flex">
+            <motion.div
+              whileHover={{ scale: 1.02, y: -3 }}
+              transition={{ type: "spring", stiffness: 300 }}
+              className="flex flex-col gap-4 p-6 rounded-xl bg-surface/50 border border-red-500/10 hover:border-red-500/30 transition-colors flex-1"
+            >
+              <div className="w-14 h-14 rounded-xl bg-red-500/10 flex items-center justify-center shrink-0">
+                <span className="text-2xl">{p.icon}</span>
               </div>
-              <div>
-                <h3 className="text-base font-semibold text-white mb-1.5">{p.title}</h3>
-                <p className="text-sm text-white/40 leading-relaxed">{p.desc}</p>
+              <div className="flex flex-col flex-1">
+                <h3 className="text-xl md:text-2xl font-bold text-white mb-3">{p.title}</h3>
+                <p className="text-base md:text-lg text-white/45 leading-relaxed">{p.desc}</p>
               </div>
-            </div>
+            </motion.div>
           </AnimatedElement>
         ))}
       </div>

@@ -80,15 +80,15 @@ export function Card({
 
 export function CardTitle({ children, color = "white" }: { children: React.ReactNode; color?: string }) {
   const colorClass = color === "gold" ? "text-gold" : "text-white";
-  return <h3 className={`text-lg font-semibold ${colorClass} mb-3`}>{children}</h3>;
+  return <h3 className={`text-xl md:text-2xl font-semibold ${colorClass} mb-3`}>{children}</h3>;
 }
 
 export function BulletList({ items, className = "" }: { items: string[]; className?: string }) {
   return (
-    <ul className={`space-y-2 ${className}`}>
+    <ul className={`space-y-2.5 ${className}`}>
       {items.map((item, i) => (
-        <li key={i} className="flex items-start gap-2.5 text-[15px] text-white/50 leading-snug">
-          <span className="text-gold/60 mt-0.5 shrink-0">•</span>
+        <li key={i} className="flex items-start gap-2.5 text-base md:text-lg text-white/50 leading-snug">
+          <span className="text-gold/60 mt-1 shrink-0">•</span>
           <span>{item}</span>
         </li>
       ))}
