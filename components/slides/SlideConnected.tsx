@@ -61,10 +61,10 @@ const colorMap: Record<string, { bg: string; border: string; text: string; glow:
 };
 
 const arrowColors: Record<string, string> = {
-  blue: "text-blue-500/40",
-  purple: "text-purple-500/40",
-  green: "text-green-500/40",
-  amber: "text-amber-500/40",
+  blue: "text-blue-400/50",
+  purple: "text-purple-400/50",
+  green: "text-green-400/50",
+  amber: "text-amber-400/50",
 };
 
 export default function SlideConnected() {
@@ -85,25 +85,25 @@ export default function SlideConnected() {
         </SlideSubtitle>
       </AnimatedElement>
 
-      <div className="space-y-4 mt-8 flex-1">
+      <div className="flex flex-col justify-evenly mt-8 flex-1 gap-2">
         {flowRows.map((row, ri) => (
           <AnimatedElement key={ri} delay={0.3 + ri * 0.12} direction="left">
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-4">
               {/* Row label with icon */}
-              <div className="w-32 shrink-0 text-right flex items-center justify-end gap-2">
-                <span className="text-lg">{row.icon}</span>
-                <span className="text-xs font-bold tracking-[0.1em] text-white/30 uppercase">
+              <div className="w-40 shrink-0 text-right flex items-center justify-end gap-3">
+                <span className="text-2xl">{row.icon}</span>
+                <span className="text-sm md:text-base font-bold tracking-[0.1em] text-white/40 uppercase">
                   {row.label}
                 </span>
               </div>
 
               {/* Steps */}
-              <div className="flex items-center gap-1.5 flex-wrap flex-1">
+              <div className="flex items-center gap-3 flex-wrap flex-1">
                 {row.steps.map((step, si) => {
                   const c = colorMap[step.color];
                   const isGold = step.color === "gold";
                   return (
-                    <div key={si} className="flex items-center gap-1.5">
+                    <div key={si} className="flex items-center gap-3">
                       <motion.div
                         initial={{ opacity: 0, scale: 0.8, y: 10 }}
                         animate={{ opacity: 1, scale: 1, y: 0 }}
@@ -113,8 +113,8 @@ export default function SlideConnected() {
                           stiffness: 200,
                           damping: 15,
                         }}
-                        className={`px-3.5 py-2 rounded-lg text-sm font-medium border ${c.bg} ${c.border} ${c.text} shadow-md ${c.glow} ${
-                          isGold ? "font-semibold ring-1 ring-gold/20" : ""
+                        className={`px-5 py-3 rounded-xl text-base md:text-lg font-medium border ${c.bg} ${c.border} ${c.text} shadow-md ${c.glow} ${
+                          isGold ? "font-bold ring-1 ring-gold/20" : ""
                         }`}
                       >
                         {step.text}
@@ -124,7 +124,7 @@ export default function SlideConnected() {
                           initial={{ opacity: 0, x: -5 }}
                           animate={{ opacity: 1, x: 0 }}
                           transition={{ delay: 0.5 + ri * 0.12 + si * 0.08 }}
-                          className={`text-sm font-bold ${arrowColors[row.steps[si].color] || "text-gold/40"}`}
+                          className={`text-xl font-bold ${arrowColors[row.steps[si].color] || "text-gold/40"}`}
                         >
                           →
                         </motion.span>
@@ -138,21 +138,10 @@ export default function SlideConnected() {
         ))}
       </div>
 
-      {/* Vertical flow indicator between rows */}
-      <AnimatedElement delay={0.85} direction="fade">
-        <div className="flex justify-center my-2">
-          <div className="flex items-center gap-3 text-white/20 text-xs tracking-widest uppercase">
-            <div className="w-16 h-px bg-gradient-to-r from-transparent to-white/10" />
-            End-to-End Automation
-            <div className="w-16 h-px bg-gradient-to-l from-transparent to-white/10" />
-          </div>
-        </div>
-      </AnimatedElement>
-
       <AnimatedElement delay={0.9} direction="up">
-        <Card gold className="mt-2">
-          <p className="text-[15px] text-white/50 text-center">
-            <span className="text-gold font-medium">Zero re-entry.</span> Customer info from the
+        <Card gold className="mt-4">
+          <p className="text-lg md:text-xl text-white/50 text-center">
+            <span className="text-gold font-semibold">Zero re-entry.</span> Customer info from the
             AI call flows into the lead → contract → job → invoice → review request —
             automatically.
           </p>
