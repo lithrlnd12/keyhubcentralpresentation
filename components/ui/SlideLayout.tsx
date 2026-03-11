@@ -22,8 +22,8 @@ export default function SlideLayout({ children, className = "" }: SlideLayoutPro
         }}
       />
 
-      {/* Content */}
-      <div className="relative z-10 w-full h-full px-8 md:px-16 lg:px-20 py-8 pb-20 overflow-y-auto">
+      {/* Content — flex column to fill viewport */}
+      <div className="relative z-10 w-full h-full flex flex-col px-6 md:px-12 lg:px-16 pt-6 pb-16 overflow-y-auto">
         {children}
       </div>
     </div>
@@ -32,7 +32,7 @@ export default function SlideLayout({ children, className = "" }: SlideLayoutPro
 
 export function SectionLabel({ children }: { children: React.ReactNode }) {
   return (
-    <span className="inline-block text-[11px] font-bold tracking-[0.2em] text-gold uppercase mb-2">
+    <span className="inline-block text-xs font-bold tracking-[0.2em] text-gold uppercase mb-1">
       {children}
     </span>
   );
@@ -40,7 +40,7 @@ export function SectionLabel({ children }: { children: React.ReactNode }) {
 
 export function SlideTitle({ children, className = "" }: { children: React.ReactNode; className?: string }) {
   return (
-    <h1 className={`text-3xl md:text-4xl lg:text-[42px] font-bold leading-tight tracking-tight ${className}`}>
+    <h1 className={`text-4xl md:text-5xl lg:text-[56px] font-bold leading-[1.1] tracking-tight ${className}`}>
       {children}
     </h1>
   );
@@ -48,7 +48,7 @@ export function SlideTitle({ children, className = "" }: { children: React.React
 
 export function SlideSubtitle({ children }: { children: React.ReactNode }) {
   return (
-    <p className="text-base md:text-lg text-white/50 max-w-4xl mt-2 leading-relaxed">
+    <p className="text-lg md:text-xl text-white/50 max-w-5xl mt-3 leading-relaxed">
       {children}
     </p>
   );
@@ -67,7 +67,7 @@ export function Card({
 }) {
   return (
     <div
-      className={`rounded-xl p-5 border transition-all duration-300 ${
+      className={`rounded-xl p-6 border transition-all duration-300 ${
         gold
           ? "bg-[#28241A] border-[#4A3D20] hover:border-gold/40"
           : "bg-surface border-surface-light/30 hover:border-white/10"
@@ -80,14 +80,14 @@ export function Card({
 
 export function CardTitle({ children, color = "white" }: { children: React.ReactNode; color?: string }) {
   const colorClass = color === "gold" ? "text-gold" : "text-white";
-  return <h3 className={`text-base font-semibold ${colorClass} mb-2`}>{children}</h3>;
+  return <h3 className={`text-lg font-semibold ${colorClass} mb-3`}>{children}</h3>;
 }
 
 export function BulletList({ items, className = "" }: { items: string[]; className?: string }) {
   return (
-    <ul className={`space-y-1.5 ${className}`}>
+    <ul className={`space-y-2 ${className}`}>
       {items.map((item, i) => (
-        <li key={i} className="flex items-start gap-2 text-sm text-white/50">
+        <li key={i} className="flex items-start gap-2.5 text-[15px] text-white/50 leading-snug">
           <span className="text-gold/60 mt-0.5 shrink-0">•</span>
           <span>{item}</span>
         </li>
@@ -99,8 +99,8 @@ export function BulletList({ items, className = "" }: { items: string[]; classNa
 export function StatBlock({ value, label }: { value: string; label: string }) {
   return (
     <div className="text-center">
-      <div className="text-3xl md:text-4xl font-bold text-gold">{value}</div>
-      <div className="text-xs text-white/30 mt-1 uppercase tracking-wider">{label}</div>
+      <div className="text-4xl md:text-5xl lg:text-6xl font-bold text-gold">{value}</div>
+      <div className="text-sm text-white/30 mt-2 uppercase tracking-widest font-medium">{label}</div>
     </div>
   );
 }

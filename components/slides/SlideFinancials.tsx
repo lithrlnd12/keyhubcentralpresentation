@@ -28,10 +28,10 @@ export default function SlideFinancials() {
         </SlideTitle>
       </AnimatedElement>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 mt-8">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 mt-8 flex-1">
         <div className="space-y-4">
-          <AnimatedElement delay={0.2} direction="left">
-            <Card>
+          <AnimatedElement delay={0.2} direction="left" className="flex">
+            <Card className="flex-1 flex flex-col">
               <CardTitle>💵 Financial Command Center</CardTitle>
               <BulletList
                 items={[
@@ -46,8 +46,8 @@ export default function SlideFinancials() {
               />
             </Card>
           </AnimatedElement>
-          <AnimatedElement delay={0.35} direction="left">
-            <Card>
+          <AnimatedElement delay={0.35} direction="left" className="flex">
+            <Card className="flex-1 flex flex-col">
               <CardTitle>🤝 Partner Portal</CardTitle>
               <BulletList
                 items={[
@@ -63,8 +63,8 @@ export default function SlideFinancials() {
         </div>
 
         <div className="space-y-4">
-          <AnimatedElement delay={0.25} direction="right">
-            <Card>
+          <AnimatedElement delay={0.25} direction="right" className="flex">
+            <Card className="flex-1 flex flex-col">
               <CardTitle>📈 Lead Management</CardTitle>
               <BulletList
                 items={[
@@ -79,16 +79,16 @@ export default function SlideFinancials() {
               />
             </Card>
           </AnimatedElement>
-          <AnimatedElement delay={0.4} direction="right">
-            <Card gold>
+          <AnimatedElement delay={0.4} direction="right" className="flex">
+            <Card gold className="flex-1 flex flex-col">
               <CardTitle>Subscription Tiers (Keynote Digital)</CardTitle>
               <div className="grid grid-cols-3 gap-3 mt-3">
                 {tiers.map((t, i) => (
                   <div key={i} className="text-center">
                     <div className="text-2xl font-bold text-gold">{t.price}</div>
-                    <div className="text-[10px] text-white/30">{t.period}</div>
-                    <div className="text-sm font-semibold text-white mt-1">{t.name}</div>
-                    <div className="text-[10px] text-white/30 mt-0.5">{t.leads}</div>
+                    <div className="text-xs text-white/30">{t.period}</div>
+                    <div className="text-[15px] font-semibold text-white mt-1">{t.name}</div>
+                    <div className="text-xs text-white/30 mt-0.5">{t.leads}</div>
                   </div>
                 ))}
               </div>

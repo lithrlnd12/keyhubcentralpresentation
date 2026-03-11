@@ -74,13 +74,13 @@ export default function SlideConnected() {
         </SlideSubtitle>
       </AnimatedElement>
 
-      <div className="space-y-3 mt-8">
+      <div className="space-y-3 mt-8 flex-1">
         {flowRows.map((row, ri) => (
           <AnimatedElement key={ri} delay={0.3 + ri * 0.12} direction="left">
             <div className="flex items-center gap-3">
               {/* Row label */}
               <div className="w-28 shrink-0 text-right">
-                <span className="text-[10px] font-bold tracking-[0.1em] text-white/30 uppercase">
+                <span className="text-xs font-bold tracking-[0.1em] text-white/30 uppercase">
                   {row.label}
                 </span>
               </div>
@@ -96,14 +96,14 @@ export default function SlideConnected() {
                         initial={{ opacity: 0, scale: 0.8 }}
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ delay: 0.4 + ri * 0.12 + si * 0.06 }}
-                        className={`px-3 py-1.5 rounded-full text-xs font-medium border ${c.bg} ${c.border} ${c.text} ${
+                        className={`px-3 py-1.5 rounded-full text-sm font-medium border ${c.bg} ${c.border} ${c.text} ${
                           isGold ? "font-semibold" : ""
                         }`}
                       >
                         {step.text}
                       </motion.div>
                       {si < row.steps.length - 1 && (
-                        <span className="text-gold/60 text-xs">→</span>
+                        <span className="text-gold/60 text-sm">→</span>
                       )}
                     </div>
                   );
@@ -116,7 +116,7 @@ export default function SlideConnected() {
 
       <AnimatedElement delay={0.9} direction="up">
         <Card gold className="mt-6">
-          <p className="text-sm text-white/50 text-center">
+          <p className="text-[15px] text-white/50 text-center">
             <span className="text-gold font-medium">Zero re-entry.</span> Customer info from the
             AI call flows into the lead → contract → job → invoice → review request —
             automatically.

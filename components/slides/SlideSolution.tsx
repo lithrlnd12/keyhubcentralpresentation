@@ -71,28 +71,28 @@ export default function SlideSolution() {
         </SlideSubtitle>
       </AnimatedElement>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mt-8">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mt-8 flex-1">
         {pillars.map((p, i) => (
-          <AnimatedElement key={i} delay={0.3 + i * 0.1} direction="up">
-            <Card gold className="h-full">
+          <AnimatedElement key={i} delay={0.3 + i * 0.1} direction="up" className="flex">
+            <Card gold className="flex-1 flex flex-col">
               <div className="flex items-center gap-2 mb-1">
-                <span className="text-lg">{p.icon}</span>
+                <span className="text-xl">{p.icon}</span>
                 <CardTitle>{p.title}</CardTitle>
               </div>
-              <span className="text-[10px] font-bold tracking-[0.15em] text-gold uppercase block mb-3">
+              <span className="text-xs font-bold tracking-[0.15em] text-gold uppercase block mb-4">
                 {p.subtitle}
               </span>
-              <BulletList items={p.bullets} />
+              <BulletList items={p.bullets} className="flex-1" />
             </Card>
           </AnimatedElement>
         ))}
       </div>
 
       <AnimatedElement delay={0.7} direction="up">
-        <Card gold className="mt-5">
-          <p className="text-sm text-white/50">
-            <span className="text-lg mr-2">📱</span>
-            <span className="text-gold font-medium">Built for mobile.</span>{" "}
+        <Card gold className="mt-4">
+          <p className="text-base text-white/50">
+            <span className="text-xl mr-2">📱</span>
+            <span className="text-gold font-semibold">Built for mobile.</span>{" "}
             Your team works from trucks and jobsites, not desks. KeyHub is a full PWA — works
             like a native app on any phone.
           </p>

@@ -70,10 +70,10 @@ export default function SlideTech() {
         </SlideSubtitle>
       </AnimatedElement>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mt-8">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mt-8 flex-1">
         {techCards.map((t, i) => (
-          <AnimatedElement key={i} delay={0.3 + i * 0.1} direction="up">
-            <Card className="h-full">
+          <AnimatedElement key={i} delay={0.3 + i * 0.1} direction="up" className="flex">
+            <Card className="h-full flex-1 flex flex-col">
               <CardTitle>{t.title}</CardTitle>
               <BulletList items={t.bullets} />
             </Card>
@@ -84,11 +84,11 @@ export default function SlideTech() {
       {/* Badges */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-5">
         {badges.map((b, i) => (
-          <AnimatedElement key={i} delay={0.65 + i * 0.08} direction="scale">
-            <Card className="text-center">
+          <AnimatedElement key={i} delay={0.65 + i * 0.08} direction="scale" className="flex">
+            <Card className="text-center flex-1 flex flex-col">
               <div className="text-2xl mb-1">{b.icon}</div>
-              <div className="text-sm font-semibold text-white">{b.label}</div>
-              <div className="text-[10px] text-white/30 mt-0.5">{b.desc}</div>
+              <div className="text-[15px] font-semibold text-white">{b.label}</div>
+              <div className="text-xs text-white/30 mt-0.5">{b.desc}</div>
             </Card>
           </AnimatedElement>
         ))}

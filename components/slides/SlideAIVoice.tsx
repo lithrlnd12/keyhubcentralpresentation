@@ -36,11 +36,11 @@ export default function SlideAIVoice() {
         </SlideSubtitle>
       </AnimatedElement>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 mt-8">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 mt-8 flex-1">
         {/* Left column */}
         <div className="space-y-4">
-          <AnimatedElement delay={0.3} direction="left">
-            <Card>
+          <AnimatedElement delay={0.3} direction="left" className="flex">
+            <Card className="flex-1 flex flex-col">
               <CardTitle>📞 Inbound Call Handling</CardTitle>
               <BulletList
                 items={[
@@ -53,8 +53,8 @@ export default function SlideAIVoice() {
               />
             </Card>
           </AnimatedElement>
-          <AnimatedElement delay={0.4} direction="left">
-            <Card>
+          <AnimatedElement delay={0.4} direction="left" className="flex">
+            <Card className="flex-1 flex flex-col">
               <CardTitle>📅 Smart Scheduling</CardTitle>
               <BulletList
                 items={[
@@ -70,23 +70,23 @@ export default function SlideAIVoice() {
 
         {/* Right column */}
         <div className="space-y-4">
-          <AnimatedElement delay={0.35} direction="right">
-            <Card gold glow>
+          <AnimatedElement delay={0.35} direction="right" className="flex">
+            <Card gold glow className="flex-1 flex flex-col">
               <CardTitle color="gold">What Your AI Captures</CardTitle>
               <div className="grid grid-cols-2 gap-4 mt-3">
                 {captures.map((c, i) => (
                   <div key={i}>
-                    <span className="text-[9px] font-bold tracking-[0.1em] text-white/30 uppercase block">
+                    <span className="text-xs font-bold tracking-[0.1em] text-white/30 uppercase block">
                       {c.label}
                     </span>
-                    <span className="text-sm text-white mt-0.5 block">{c.value}</span>
+                    <span className="text-[15px] text-white mt-0.5 block">{c.value}</span>
                   </div>
                 ))}
               </div>
             </Card>
           </AnimatedElement>
-          <AnimatedElement delay={0.45} direction="right">
-            <Card>
+          <AnimatedElement delay={0.45} direction="right" className="flex">
+            <Card className="flex-1 flex flex-col">
               <CardTitle>💬 Outbound & Follow-Up</CardTitle>
               <BulletList
                 items={[

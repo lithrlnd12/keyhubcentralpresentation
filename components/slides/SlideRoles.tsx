@@ -85,18 +85,18 @@ export default function SlideRoles() {
         </SlideSubtitle>
       </AnimatedElement>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-8 flex-1">
         {roles.map((r, i) => (
-          <AnimatedElement key={i} delay={0.25 + i * 0.06} direction="scale">
+          <AnimatedElement key={i} delay={0.25 + i * 0.06} direction="scale" className="flex">
             <div
-              className={`relative rounded-xl p-4 border ${r.border} ${r.bg} h-full transition-all duration-300 hover:scale-[1.02]`}
+              className={`relative rounded-xl p-4 border ${r.border} ${r.bg} h-full flex-1 flex flex-col transition-all duration-300 hover:scale-[1.02]`}
             >
               {/* Left accent bar */}
               <div
                 className={`absolute left-0 top-4 bottom-4 w-[3px] rounded-full ${r.color.replace("text-", "bg-")}`}
               />
-              <h3 className={`text-sm font-semibold ${r.color} mb-2 pl-3`}>{r.title}</h3>
-              <p className="text-xs text-white/40 leading-relaxed pl-3">{r.desc}</p>
+              <h3 className={`text-[15px] font-semibold ${r.color} mb-2 pl-3`}>{r.title}</h3>
+              <p className="text-sm text-white/40 leading-relaxed pl-3">{r.desc}</p>
             </div>
           </AnimatedElement>
         ))}

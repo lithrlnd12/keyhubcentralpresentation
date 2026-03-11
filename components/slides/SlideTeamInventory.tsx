@@ -22,10 +22,10 @@ export default function SlideTeamInventory() {
         </SlideTitle>
       </AnimatedElement>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 mt-8">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 mt-8 flex-1">
         <div className="space-y-4">
-          <AnimatedElement delay={0.2} direction="left">
-            <Card className="h-auto">
+          <AnimatedElement delay={0.2} direction="left" className="flex">
+            <Card className="h-auto flex-1 flex flex-col">
               <CardTitle>👷 Contractor Management</CardTitle>
               <BulletList
                 items={[
@@ -40,8 +40,8 @@ export default function SlideTeamInventory() {
               />
             </Card>
           </AnimatedElement>
-          <AnimatedElement delay={0.35} direction="left">
-            <Card>
+          <AnimatedElement delay={0.35} direction="left" className="flex">
+            <Card className="flex-1 flex flex-col">
               <CardTitle>📅 Availability Calendar</CardTitle>
               <BulletList
                 items={[
@@ -57,8 +57,8 @@ export default function SlideTeamInventory() {
         </div>
 
         <div className="space-y-4">
-          <AnimatedElement delay={0.25} direction="right">
-            <Card className="h-auto">
+          <AnimatedElement delay={0.25} direction="right" className="flex">
+            <Card className="h-auto flex-1 flex flex-col">
               <CardTitle>📦 Inventory Tracking</CardTitle>
               <BulletList
                 items={[
@@ -73,8 +73,8 @@ export default function SlideTeamInventory() {
               />
             </Card>
           </AnimatedElement>
-          <AnimatedElement delay={0.4} direction="right">
-            <Card gold>
+          <AnimatedElement delay={0.4} direction="right" className="flex">
+            <Card gold className="flex-1 flex flex-col">
               <CardTitle>🔑 Contractor Portal</CardTitle>
               <BulletList
                 items={[

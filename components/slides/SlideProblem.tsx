@@ -54,16 +54,16 @@ export default function SlideProblem() {
         </SlideSubtitle>
       </AnimatedElement>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-8 flex-1">
         {problems.map((p, i) => (
           <AnimatedElement key={i} delay={0.25 + i * 0.08} direction="up">
-            <div className="flex items-start gap-3 p-4 rounded-xl bg-surface/50 border border-red-500/10 hover:border-red-500/20 transition-all group">
-              <div className="w-10 h-10 rounded-lg bg-red-500/10 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
-                <span className="text-lg">{p.icon}</span>
+            <div className="flex items-start gap-4 p-5 rounded-xl bg-surface/50 border border-red-500/10 hover:border-red-500/25 transition-all group h-full">
+              <div className="w-12 h-12 rounded-xl bg-red-500/10 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                <span className="text-xl">{p.icon}</span>
               </div>
               <div>
-                <h3 className="text-sm font-semibold text-white mb-1">{p.title}</h3>
-                <p className="text-xs text-white/40 leading-relaxed">{p.desc}</p>
+                <h3 className="text-base font-semibold text-white mb-1.5">{p.title}</h3>
+                <p className="text-sm text-white/40 leading-relaxed">{p.desc}</p>
               </div>
             </div>
           </AnimatedElement>

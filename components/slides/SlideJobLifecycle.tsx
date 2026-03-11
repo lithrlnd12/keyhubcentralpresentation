@@ -76,7 +76,7 @@ export default function SlideJobLifecycle() {
               className="flex items-center gap-2"
             >
               <div
-                className={`px-3 py-2 rounded-lg text-xs font-semibold whitespace-nowrap transition-all ${
+                className={`px-3 py-2 rounded-lg text-sm font-semibold whitespace-nowrap transition-all ${
                   isHighlight
                     ? "bg-[#28241A] border border-gold/40 text-gold"
                     : "bg-surface border border-surface-light/30 text-white"
@@ -93,14 +93,14 @@ export default function SlideJobLifecycle() {
       </div>
 
       {/* Feature cards */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 flex-1">
         {features.map((f, i) => (
-          <AnimatedElement key={i} delay={0.6 + i * 0.08} direction="up">
-            <Card className="h-full">
+          <AnimatedElement key={i} delay={0.6 + i * 0.08} direction="up" className="flex">
+            <Card className="h-full flex-1 flex flex-col">
               <CardTitle>
                 {f.icon} {f.title}
               </CardTitle>
-              <p className="text-xs text-white/40 leading-relaxed">{f.desc}</p>
+              <p className="text-sm text-white/40 leading-relaxed">{f.desc}</p>
             </Card>
           </AnimatedElement>
         ))}
@@ -109,7 +109,7 @@ export default function SlideJobLifecycle() {
       {/* Commission highlight */}
       <AnimatedElement delay={0.95} direction="up">
         <Card gold className="mt-5">
-          <p className="text-sm">
+          <p className="text-[15px]">
             <span className="text-gold font-semibold">Commission tracking built in.</span>{" "}
             <span className="text-white/50">
               Elite (10%), Pro (9%), Standard (8%) tiers based on contractor ratings. Automated

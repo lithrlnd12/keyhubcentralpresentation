@@ -13,7 +13,7 @@ const timeline = [
 export default function SlideCTA() {
   return (
     <SlideLayout className="flex items-center justify-center">
-      <div className="flex flex-col items-center text-center max-w-4xl mx-auto">
+      <div className="flex flex-col items-center justify-center text-center max-w-4xl mx-auto flex-1">
         {/* Logo */}
         <AnimatedElement delay={0} direction="scale">
           <div className="w-20 h-20 rounded-2xl bg-gold flex items-center justify-center mb-8 animate-float">
@@ -23,7 +23,7 @@ export default function SlideCTA() {
 
         {/* Title */}
         <AnimatedElement delay={0.2} direction="up">
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight leading-tight">
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-tight">
             <span className="text-white">Ready to Run Your Business</span>
             <br />
             <span className="text-gold">From One Place?</span>
@@ -44,7 +44,7 @@ export default function SlideCTA() {
             {timeline.map((t, i) => (
               <Card key={i} className="text-center">
                 <div className="text-2xl font-bold text-gold mb-2">{t.week}</div>
-                <p className="text-xs text-white/40 leading-relaxed">{t.desc}</p>
+                <p className="text-sm text-white/40 leading-relaxed">{t.desc}</p>
               </Card>
             ))}
           </div>
@@ -62,7 +62,7 @@ export default function SlideCTA() {
         </AnimatedElement>
 
         <AnimatedElement delay={0.85} direction="fade">
-          <p className="mt-6 text-xs text-white/20">
+          <p className="mt-6 text-sm text-white/20">
             keyhubcentral.com &middot; support@keyrenovations.com &middot; (812) 776-6215
           </p>
         </AnimatedElement>
