@@ -1,17 +1,25 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 
-const particles = Array.from({ length: 25 }, (_, i) => ({
-  id: i,
-  x: `${Math.random() * 100}%`,
-  y: `${Math.random() * 100}%`,
-  size: 1 + Math.random() * 2,
-  duration: 4 + Math.random() * 6,
-  delay: Math.random() * 4,
-}));
+function generateParticles() {
+  return Array.from({ length: 25 }, (_, i) => ({
+    id: i,
+    x: `${Math.random() * 100}%`,
+    y: `${Math.random() * 100}%`,
+    size: 1 + Math.random() * 2,
+    duration: 4 + Math.random() * 6,
+    delay: Math.random() * 4,
+  }));
+}
 
 export default function ParticleBackground() {
+  const [particles, setParticles] = useState<ReturnType<typeof generateParticles>>([]);
+
+  useEffect(() => {
+    setParticles(generateParticles());
+  }, []);
   return (
     <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
       {/* Gold glow orb — top left */}

@@ -94,16 +94,19 @@ export default function Presentation({ children }: PresentationProps) {
 
   const slideVariants = {
     enter: (dir: number) => ({
-      x: dir > 0 ? "100%" : "-100%",
+      x: dir > 0 ? "8%" : "-8%",
       opacity: 0,
+      scale: 0.97,
     }),
     center: {
       x: 0,
       opacity: 1,
+      scale: 1,
     },
     exit: (dir: number) => ({
-      x: dir < 0 ? "100%" : "-100%",
+      x: dir < 0 ? "8%" : "-8%",
       opacity: 0,
+      scale: 0.97,
     }),
   };
 
@@ -120,8 +123,8 @@ export default function Presentation({ children }: PresentationProps) {
             animate="center"
             exit="exit"
             transition={{
-              x: { type: "spring", stiffness: 300, damping: 30 },
-              opacity: { duration: 0.2 },
+              duration: 0.6,
+              ease: [0.25, 0.1, 0.25, 1],
             }}
             className="absolute inset-0"
           >
