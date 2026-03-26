@@ -7,51 +7,15 @@ import SlideLayout, {
   SlideTitle,
   SlideSubtitle,
   Card,
-  BulletList,
 } from "@/components/ui/SlideLayout";
 
-const techCards = [
-  {
-    title: "Platform",
-    icon: "⚡",
-    bullets: [
-      "Progressive Web App (any device)",
-      "Real-time data sync across all users",
-      "Mobile-first responsive design",
-      "Enterprise-grade security",
-      "99.9% uptime (Vercel + Firebase)",
-    ],
-  },
-  {
-    title: "Integrations",
-    icon: "🔗",
-    bullets: [
-      "Google Calendar (2-way sync)",
-      "Gmail API (email automation)",
-      "SMS / Twilio (messaging)",
-      "Vapi AI (voice calls)",
-      "Google Drive (document storage)",
-    ],
-  },
-  {
-    title: "AI Features",
-    icon: "🤖",
-    bullets: [
-      "Voice AI receptionist (24/7)",
-      "Call analysis & lead scoring",
-      "SMS conversation analysis",
-      "Receipt OCR parsing",
-      "AI shopping list generation",
-      "Contractor recommendations",
-    ],
-  },
-];
-
 const badges = [
-  { icon: "📱", label: "PWA", desc: "Install like an app" },
+  { icon: "📱", label: "PWA", desc: "Works like a native app" },
   { icon: "⚡", label: "Real-Time", desc: "Live data sync" },
   { icon: "🔐", label: "Secure", desc: "Firebase Auth + RBAC" },
-  { icon: "🌐", label: "Cloud Native", desc: "Auto-scaling" },
+  { icon: "🤖", label: "AI-Powered", desc: "Voice, scoring, OCR" },
+  { icon: "📅", label: "Google Calendar", desc: "2-way sync" },
+  { icon: "🌐", label: "Cloud Native", desc: "99.9% uptime" },
 ];
 
 export default function SlideTech() {
@@ -68,38 +32,22 @@ export default function SlideTech() {
       </AnimatedElement>
       <AnimatedElement delay={0.2}>
         <SlideSubtitle>
-          Built on the same infrastructure that powers Google, with integrations your team
-          already uses.
+          Built on the same infrastructure that powers Google, with integrations your team already uses.
         </SlideSubtitle>
       </AnimatedElement>
 
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-5 mt-4 sm:mt-8 flex-1">
-        {techCards.map((t, i) => (
-          <AnimatedElement key={i} delay={0.3 + i * 0.1} direction="up" className="flex">
-            <Card className="h-full flex-1 flex flex-col">
-              <div className="flex items-center gap-2 mb-2 sm:mb-3">
-                <span className="text-lg sm:text-xl">{t.icon}</span>
-                <span className="text-base sm:text-lg font-semibold text-white">{t.title}</span>
-              </div>
-              <BulletList items={t.bullets} />
-            </Card>
-          </AnimatedElement>
-        ))}
-      </div>
-
-      {/* Badges */}
-      <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-4 mt-3 sm:mt-5">
+      <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-5 mt-6 sm:mt-10 max-w-4xl mx-auto">
         {badges.map((b, i) => (
-          <AnimatedElement key={i} delay={0.65 + i * 0.08} direction="scale" className="flex">
+          <AnimatedElement key={i} delay={0.3 + i * 0.08} direction="scale" className="flex">
             <motion.div
-              whileHover={{ scale: 1.05, y: -2 }}
+              whileHover={{ scale: 1.05, y: -3 }}
               transition={{ type: "spring", stiffness: 300 }}
               className="flex-1"
             >
-              <Card className="text-center flex-1 flex flex-col">
-                <div className="text-lg sm:text-2xl mb-1">{b.icon}</div>
-                <div className="text-sm sm:text-[15px] font-semibold text-white">{b.label}</div>
-                <div className="text-[10px] sm:text-xs text-white/30 mt-0.5">{b.desc}</div>
+              <Card className="text-center flex-1 flex flex-col items-center py-6 sm:py-8">
+                <div className="text-2xl sm:text-4xl mb-2 sm:mb-3">{b.icon}</div>
+                <div className="text-base sm:text-xl font-bold text-white">{b.label}</div>
+                <div className="text-xs sm:text-sm text-white/40 mt-1">{b.desc}</div>
               </Card>
             </motion.div>
           </AnimatedElement>

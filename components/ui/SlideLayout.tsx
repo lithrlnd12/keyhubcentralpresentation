@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useRef, useEffect } from "react";
 
 interface SlideLayoutProps {
   children: React.ReactNode;
@@ -8,6 +8,41 @@ interface SlideLayoutProps {
 }
 
 export default function SlideLayout({ children, className = "" }: SlideLayoutProps) {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const contentRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const container = containerRef.current;
+    const content = contentRef.current;
+    if (!container || !content) return;
+
+    const updateScale = () => {
+      // Reset to measure natural dimensions at full width
+      content.style.transform = "none";
+      content.style.width = "100%";
+
+      const available = container.clientHeight;
+      const natural = content.scrollHeight;
+
+      if (natural > available) {
+        const scale = available / natural;
+        content.style.transformOrigin = "top left";
+        content.style.transform = `scale(${scale})`;
+        // Widen content so it visually fills container width after scaling
+        content.style.width = `${100 / scale}%`;
+      }
+    };
+
+    const timer = setTimeout(updateScale, 60);
+    const observer = new ResizeObserver(updateScale);
+    observer.observe(container);
+
+    return () => {
+      observer.disconnect();
+      clearTimeout(timer);
+    };
+  }, []);
+
   return (
     <div className={`relative w-full h-full bg-bg-dark overflow-hidden ${className}`}>
       {/* Top gold accent bar */}
@@ -22,9 +57,17 @@ export default function SlideLayout({ children, className = "" }: SlideLayoutPro
         }}
       />
 
-      {/* Content — flex column to fill viewport, mobile-friendly padding */}
-      <div className="relative z-10 w-full h-full flex flex-col px-4 sm:px-6 md:px-12 lg:px-16 pt-4 sm:pt-6 pb-14 sm:pb-16 overflow-y-auto">
-        {children}
+      {/* Scaling container */}
+      <div
+        ref={containerRef}
+        className="relative z-10 w-full h-full overflow-hidden"
+      >
+        <div
+          ref={contentRef}
+          className="flex flex-col min-h-full px-4 sm:px-6 md:px-12 lg:px-16 pt-4 sm:pt-6 pb-14 sm:pb-16"
+        >
+          {children}
+        </div>
       </div>
     </div>
   );
@@ -67,7 +110,7 @@ export function Card({
 }) {
   return (
     <div
-      className={`rounded-xl p-4 sm:p-6 border transition-all duration-300 ${
+      className={`rounded-xl p-3 sm:p-6 border transition-all duration-300 ${
         gold
           ? "bg-[#28241A] border-[#4A3D20] hover:border-gold/40"
           : "bg-surface border-surface-light/30 hover:border-white/10"
@@ -80,14 +123,14 @@ export function Card({
 
 export function CardTitle({ children, color = "white" }: { children: React.ReactNode; color?: string }) {
   const colorClass = color === "gold" ? "text-gold" : "text-white";
-  return <h3 className={`text-lg sm:text-xl md:text-2xl font-semibold ${colorClass} mb-2 sm:mb-3`}>{children}</h3>;
+  return <h3 className={`text-base sm:text-xl md:text-2xl font-semibold ${colorClass} mb-1.5 sm:mb-3`}>{children}</h3>;
 }
 
 export function BulletList({ items, className = "" }: { items: string[]; className?: string }) {
   return (
-    <ul className={`space-y-1.5 sm:space-y-2.5 ${className}`}>
+    <ul className={`space-y-1 sm:space-y-2.5 ${className}`}>
       {items.map((item, i) => (
-        <li key={i} className="flex items-start gap-2 sm:gap-2.5 text-sm sm:text-base md:text-lg text-white/50 leading-snug">
+        <li key={i} className="flex items-start gap-1.5 sm:gap-2.5 text-xs sm:text-base md:text-lg text-white/50 leading-snug">
           <span className="text-gold/60 mt-0.5 sm:mt-1 shrink-0">•</span>
           <span>{item}</span>
         </li>

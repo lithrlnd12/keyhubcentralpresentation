@@ -24,22 +24,22 @@ const features = [
   {
     icon: "📄",
     title: "Digital Contracts",
-    desc: "E-signatures, initials, disclosures — all captured digitally with PDF generation",
+    desc: "E-signatures & PDF generation",
   },
   {
     icon: "📸",
     title: "Photo Documentation",
-    desc: "Before/after photos, measurement data, and job notes in one place",
+    desc: "Before/after photos & job notes",
   },
   {
     icon: "💰",
     title: "Cost Tracking",
-    desc: "Material & labor costs — projected vs. actual — so you know margin on every job",
+    desc: "Projected vs. actual margins",
   },
   {
     icon: "👥",
-    title: "Crew Assignment",
-    desc: "AI recommends contractors based on availability, distance, and rating",
+    title: "AI Crew Assignment",
+    desc: "Based on availability & rating",
   },
 ];
 
@@ -57,8 +57,7 @@ export default function SlideJobLifecycle() {
       </AnimatedElement>
       <AnimatedElement delay={0.2}>
         <SlideSubtitle>
-          Track every project from first contact through final payment — with full cost
-          visibility at each step.
+          Track every project from first contact through final payment.
         </SlideSubtitle>
       </AnimatedElement>
 
@@ -92,7 +91,7 @@ export default function SlideJobLifecycle() {
       </div>
 
       {/* Feature cards */}
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-5 flex-1">
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-5">
         {features.map((f, i) => (
           <AnimatedElement key={i} delay={0.6 + i * 0.08} direction="up" className="flex">
             <motion.div
@@ -100,27 +99,15 @@ export default function SlideJobLifecycle() {
               transition={{ type: "spring", stiffness: 300 }}
               className="flex-1"
             >
-              <Card className="h-full flex-1 flex flex-col">
+              <Card className="flex flex-col">
                 <span className="text-xl sm:text-3xl mb-2 sm:mb-3">{f.icon}</span>
-                <h3 className="text-sm sm:text-xl md:text-2xl font-bold text-white mb-1 sm:mb-3">{f.title}</h3>
-                <p className="text-xs sm:text-base md:text-lg text-white/45 leading-relaxed flex-1">{f.desc}</p>
+                <h3 className="text-sm sm:text-xl md:text-2xl font-bold text-white mb-1 sm:mb-2">{f.title}</h3>
+                <p className="text-xs sm:text-base text-white/45 leading-relaxed flex-1">{f.desc}</p>
               </Card>
             </motion.div>
           </AnimatedElement>
         ))}
       </div>
-
-      {/* Commission highlight */}
-      <AnimatedElement delay={0.95} direction="up">
-        <Card gold className="mt-3 sm:mt-5">
-          <p className="text-sm sm:text-lg md:text-xl">
-            <span className="text-gold font-semibold">Commission tracking built in.</span>{" "}
-            <span className="text-white/50">
-              Elite (10%), Pro (9%), Standard (8%) tiers based on contractor ratings.
-            </span>
-          </p>
-        </Card>
-      </AnimatedElement>
     </SlideLayout>
   );
 }

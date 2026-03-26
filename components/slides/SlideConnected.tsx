@@ -85,7 +85,7 @@ export default function SlideConnected() {
         </SlideSubtitle>
       </AnimatedElement>
 
-      <div className="flex flex-col justify-evenly mt-4 sm:mt-8 flex-1 gap-2">
+      <div className="flex flex-col gap-3 sm:gap-4 mt-4 sm:mt-8">
         {flowRows.map((row, ri) => (
           <AnimatedElement key={ri} delay={0.3 + ri * 0.12} direction="left">
             <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-4">

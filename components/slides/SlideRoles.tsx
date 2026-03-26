@@ -11,59 +11,45 @@ import SlideLayout, {
 const roles = [
   {
     title: "Owner / Admin",
-    desc: "Full access. User approvals, financial reports, system settings, all data.",
+    desc: "Full access — financials, approvals, settings",
     color: "text-gold",
     border: "border-gold/30",
     bg: "bg-gold/5",
   },
   {
     title: "Project Manager",
-    desc: "Job management, crew assignment, scheduling, material tracking, costs.",
+    desc: "Jobs, crews, scheduling, materials",
     color: "text-blue-400",
     border: "border-blue-500/30",
     bg: "bg-blue-500/5",
   },
   {
     title: "Sales Rep",
-    desc: "Lead management, job creation, nearby leads, commissions, recommendations.",
+    desc: "Leads, contracts, commissions",
     color: "text-green-400",
     border: "border-green-500/30",
     bg: "bg-green-500/5",
   },
   {
     title: "Contractor",
-    desc: "Personal portal: jobs, invoices, expenses, availability, inventory, P&L.",
+    desc: "Jobs, invoices, availability, earnings",
     color: "text-purple-400",
     border: "border-purple-500/30",
     bg: "bg-purple-500/5",
   },
   {
     title: "Partner",
-    desc: "Labor requests, service tickets, team map, submission history.",
+    desc: "Labor requests & service tickets",
     color: "text-amber-400",
     border: "border-amber-500/30",
     bg: "bg-amber-500/5",
   },
   {
     title: "Customer",
-    desc: "Book appointments, find pros, track projects, messaging, reviews.",
+    desc: "Book, track projects, message crews",
     color: "text-teal-400",
     border: "border-teal-500/30",
     bg: "bg-teal-500/5",
-  },
-  {
-    title: "Subscriber",
-    desc: "Lead access based on subscription tier. Starter, Growth, or Pro plans.",
-    color: "text-white/50",
-    border: "border-white/10",
-    bg: "bg-white/[0.02]",
-  },
-  {
-    title: "🔒 Approval Flow",
-    desc: "Every signup is reviewed by admin before access is granted.",
-    color: "text-white/30",
-    border: "border-white/5",
-    bg: "bg-white/[0.01]",
   },
 ];
 
@@ -81,25 +67,23 @@ export default function SlideRoles() {
       </AnimatedElement>
       <AnimatedElement delay={0.2}>
         <SlideSubtitle>
-          Eight distinct roles, each with tailored permissions and their own dashboard
-          experience.
+          Six distinct roles, each with tailored permissions and dashboards.
         </SlideSubtitle>
       </AnimatedElement>
 
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-5 mt-4 sm:mt-8 flex-1">
+      <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-5 mt-6 sm:mt-10 max-w-4xl mx-auto">
         {roles.map((r, i) => (
-          <AnimatedElement key={i} delay={0.25 + i * 0.06} direction="scale" className="flex">
+          <AnimatedElement key={i} delay={0.25 + i * 0.08} direction="scale" className="flex">
             <motion.div
               whileHover={{ scale: 1.03, y: -2 }}
               transition={{ type: "spring", stiffness: 300 }}
-              className={`relative rounded-xl p-3 sm:p-5 border ${r.border} ${r.bg} h-full flex-1 flex flex-col`}
+              className={`relative rounded-xl p-4 sm:p-5 border ${r.border} ${r.bg} flex flex-col`}
             >
-              {/* Left accent bar */}
               <div
-                className={`absolute left-0 top-3 sm:top-5 bottom-3 sm:bottom-5 w-[3px] sm:w-[4px] rounded-full ${r.color.replace("text-", "bg-")}`}
+                className={`absolute left-0 top-4 sm:top-5 bottom-4 sm:bottom-5 w-[3px] sm:w-[4px] rounded-full ${r.color.replace("text-", "bg-")}`}
               />
-              <h3 className={`text-sm sm:text-xl md:text-2xl font-bold ${r.color} mb-1 sm:mb-3 pl-3 sm:pl-4`}>{r.title}</h3>
-              <p className="text-xs sm:text-base md:text-lg text-white/45 leading-relaxed pl-3 sm:pl-4">{r.desc}</p>
+              <h3 className={`text-sm sm:text-xl md:text-2xl font-bold ${r.color} mb-1 sm:mb-2 pl-3 sm:pl-4`}>{r.title}</h3>
+              <p className="text-xs sm:text-base text-white/45 leading-relaxed pl-3 sm:pl-4">{r.desc}</p>
             </motion.div>
           </AnimatedElement>
         ))}

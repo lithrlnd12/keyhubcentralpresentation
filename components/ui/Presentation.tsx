@@ -111,7 +111,7 @@ export default function Presentation({ children }: PresentationProps) {
   };
 
   return (
-    <div className="relative w-screen h-screen bg-bg-darker overflow-hidden select-none">
+    <div className="relative w-screen bg-bg-darker overflow-hidden select-none" style={{ height: '100dvh' }}>
       {/* Slide content */}
       <div className="relative w-full h-full">
         <AnimatePresence initial={false} custom={direction} mode="wait">
