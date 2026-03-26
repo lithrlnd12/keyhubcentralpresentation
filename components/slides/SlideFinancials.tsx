@@ -11,9 +11,9 @@ import SlideLayout, {
 } from "@/components/ui/SlideLayout";
 
 const tiers = [
-  { price: "$499", period: "/mo", name: "Starter", seats: "1–5 seats", popular: false },
-  { price: "$1,299", period: "/mo", name: "Growth", seats: "6–20 seats", popular: true },
-  { price: "$2,499", period: "/mo", name: "Business", seats: "21–50 seats", popular: false },
+  { price: "$599", period: "/mo", name: "Starter", seats: "1–5 seats", onboarding: "$599", popular: false },
+  { price: "$1,599", period: "/mo", name: "Growth", seats: "6–20 seats", onboarding: "$1,599", popular: true },
+  { price: "$2,599", period: "/mo", name: "Business", seats: "21–50 seats", onboarding: "$2,599", popular: false },
 ];
 
 export default function SlideFinancials() {
@@ -70,6 +70,7 @@ export default function SlideFinancials() {
                   <div className="text-lg sm:text-2xl font-bold text-gold mt-1">{t.price}</div>
                   <div className="text-[10px] sm:text-xs text-white/30">{t.period}</div>
                   <div className="text-[10px] sm:text-xs text-white/40 mt-1">{t.seats}</div>
+                  <div className="text-[8px] sm:text-[10px] text-white/25 mt-0.5">+ {t.onboarding} onboarding</div>
                 </div>
               ))}
             </div>
