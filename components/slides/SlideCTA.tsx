@@ -30,26 +30,46 @@ export default function SlideCTA() {
           </h1>
         </AnimatedElement>
 
-        {/* Contact Name */}
+        {/* Contacts */}
         <AnimatedElement delay={0.35} direction="up">
-          <p className="text-lg sm:text-2xl md:text-3xl text-white font-semibold mt-6 sm:mt-10">
-            Aaron Litherland
-          </p>
-        </AnimatedElement>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-10 mt-6 sm:mt-10">
+            {/* Aaron */}
+            <div>
+              <p className="text-lg sm:text-2xl md:text-3xl text-white font-semibold">
+                Aaron Litherland
+              </p>
+              <div className="mt-3 sm:mt-4 space-y-1.5 sm:space-y-2">
+                <p className="text-sm sm:text-lg text-white/60">
+                  <a href="mailto:aaron@innovativeaiconsulting.com" className="hover:text-gold transition-colors">
+                    aaron@innovativeaiconsulting.com
+                  </a>
+                </p>
+                <p className="text-sm sm:text-lg text-white/60">
+                  <a href="tel:8128906303" className="hover:text-gold transition-colors">
+                    (812) 890-6303
+                  </a>
+                </p>
+              </div>
+            </div>
 
-        {/* Contact Details */}
-        <AnimatedElement delay={0.5} direction="up">
-          <div className="mt-4 sm:mt-6 space-y-2 sm:space-y-3">
-            <p className="text-sm sm:text-lg text-white/60">
-              <a href="mailto:aaron@innovativeaiconsulting.com" className="hover:text-gold transition-colors">
-                aaron@innovativeaiconsulting.com
-              </a>
-            </p>
-            <p className="text-sm sm:text-lg text-white/60">
-              <a href="tel:8128906303" className="hover:text-gold transition-colors">
-                (812) 890-6303
-              </a>
-            </p>
+            {/* Zach */}
+            <div>
+              <p className="text-lg sm:text-2xl md:text-3xl text-white font-semibold">
+                Zachary Rhyne
+              </p>
+              <div className="mt-3 sm:mt-4 space-y-1.5 sm:space-y-2">
+                <p className="text-sm sm:text-lg text-white/60">
+                  <a href="mailto:zach.rhyne@keytradesolutions.com" className="hover:text-gold transition-colors">
+                    zach.rhyne@keytradesolutions.com
+                  </a>
+                </p>
+                <p className="text-sm sm:text-lg text-white/60">
+                  <a href="tel:4059907821" className="hover:text-gold transition-colors">
+                    (405) 990-7821
+                  </a>
+                </p>
+              </div>
+            </div>
           </div>
         </AnimatedElement>
       </div>
