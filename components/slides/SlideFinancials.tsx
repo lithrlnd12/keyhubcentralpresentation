@@ -11,7 +11,6 @@ import SlideLayout, {
 } from "@/components/ui/SlideLayout";
 
 const tiers = [
-  { price: "$599", period: "/mo", name: "Starter", seats: "1–5 seats", onboarding: "$599", popular: false },
   { price: "$1,599", period: "/mo", name: "Growth", seats: "6–20 seats", onboarding: "$1,599", popular: true },
   { price: "$2,599", period: "/mo", name: "Business", seats: "21–50 seats", onboarding: "$2,599", popular: false },
 ];
@@ -62,7 +61,7 @@ export default function SlideFinancials() {
         <AnimatedElement delay={0.4} direction="up" className="flex">
           <Card gold className="flex-1 flex flex-col">
             <CardTitle>KeyHub Central Plans</CardTitle>
-            <div className="grid grid-cols-3 gap-2 sm:gap-3 mt-2 sm:mt-3">
+            <div className="grid grid-cols-2 gap-2 sm:gap-3 mt-2 sm:mt-3">
               {tiers.map((t, i) => (
                 <div key={i} className={`text-center rounded-lg p-1.5 sm:p-2 ${t.popular ? "ring-1 ring-gold/30 bg-gold/5" : ""}`}>
                   {t.popular && <div className="text-[8px] sm:text-[10px] font-bold text-gold uppercase tracking-wider mb-1">Popular</div>}
