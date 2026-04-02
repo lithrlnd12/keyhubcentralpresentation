@@ -8,10 +8,8 @@ import SlideAIVoice from "@/components/slides/SlideAIVoice";
 import SlideJobLifecycle from "@/components/slides/SlideJobLifecycle";
 import SlideTeamInventory from "@/components/slides/SlideTeamInventory";
 import SlideFinancials from "@/components/slides/SlideFinancials";
-import SlideCustomerExp from "@/components/slides/SlideCustomerExp";
-import SlideRoles from "@/components/slides/SlideRoles";
 import SlideConnected from "@/components/slides/SlideConnected";
-import SlideTech from "@/components/slides/SlideTech";
+import SlideRolesTech from "@/components/slides/SlideRolesTech";
 import SlideCTA from "@/components/slides/SlideCTA";
 
 export default function Home() {
@@ -24,10 +22,8 @@ export default function Home() {
       <SlideJobLifecycle />
       <SlideTeamInventory />
       <SlideFinancials />
-      <SlideCustomerExp />
-      <SlideRoles />
       <SlideConnected />
-      <SlideTech />
+      <SlideRolesTech />
       <SlideCTA />
     </Presentation>
   );

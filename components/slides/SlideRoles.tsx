@@ -60,7 +60,7 @@ export default function SlideRoles() {
       </AnimatedElement>
       <AnimatedElement delay={0.2}>
         <SlideSubtitle>
-          Six distinct roles, each with tailored permissions and dashboards.
+          Five distinct roles, each with tailored permissions and dashboards.
         </SlideSubtitle>
       </AnimatedElement>
 

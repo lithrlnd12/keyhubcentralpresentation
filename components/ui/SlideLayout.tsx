@@ -64,7 +64,7 @@ export default function SlideLayout({ children, className = "" }: SlideLayoutPro
       >
         <div
           ref={contentRef}
-          className="flex flex-col min-h-full px-4 sm:px-6 md:px-12 lg:px-16 pt-4 sm:pt-6 pb-14 sm:pb-16"
+          className="flex flex-col justify-center min-h-full px-4 sm:px-6 md:px-12 lg:px-16 pt-4 sm:pt-6 pb-14 sm:pb-16"
         >
           {children}
         </div>

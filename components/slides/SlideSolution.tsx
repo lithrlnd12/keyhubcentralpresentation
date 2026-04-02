@@ -13,8 +13,8 @@ import SlideLayout, {
 const pillars = [
   {
     icon: "🏗️",
-    title: "Key Trade Solutions",
-    subtitle: "YOUR TEAM",
+    title: "Your Team",
+    subtitle: "KEY TRADE SOLUTIONS",
     bullets: [
       "1099 contractor network management",
       "AI-powered crew recommendations",
@@ -23,8 +23,8 @@ const pillars = [
   },
   {
     icon: "🔨",
-    title: "Key Renovations",
-    subtitle: "YOUR JOBS",
+    title: "Your Jobs",
+    subtitle: "KEY RENOVATIONS",
     bullets: [
       "Full job lifecycle (8 stages)",
       "Digital contracts & e-signatures",
@@ -33,8 +33,8 @@ const pillars = [
   },
   {
     icon: "📈",
-    title: "Keynote Digital",
-    subtitle: "YOUR LEADS",
+    title: "Your Leads",
+    subtitle: "KEYNOTE DIGITAL",
     bullets: [
       "Multi-source lead management",
       "AI call analysis & lead scoring",

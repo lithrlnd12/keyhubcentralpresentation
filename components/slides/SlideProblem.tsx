@@ -13,12 +13,12 @@ const problems = [
   {
     icon: "📋",
     title: "Spreadsheet Scheduling",
-    desc: "Crew availability lives in texts and whiteboards. Double-bookings happen weekly.",
+    desc: "Crew availability lives in texts, spreadsheets, and whiteboards. Double-bookings happen weekly.",
   },
   {
     icon: "🧩",
-    title: "10 Apps, Zero Integration",
-    desc: "QuickBooks + Google Cal + WhatsApp + Excel + email. None of them talk to each other.",
+    title: "8+ Tools, Zero Integration",
+    desc: "Salesforce + Lead Perfection + Google Cal + Excel + QuickBooks + email + texts + paper filing. None of them talk to each other.",
   },
   {
     icon: "📊",
