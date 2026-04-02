@@ -44,13 +44,6 @@ const roles = [
     border: "border-amber-500/30",
     bg: "bg-amber-500/5",
   },
-  {
-    title: "Customer",
-    desc: "Book, track projects, message crews",
-    color: "text-teal-400",
-    border: "border-teal-500/30",
-    bg: "bg-teal-500/5",
-  },
 ];
 
 export default function SlideRoles() {
