@@ -7,7 +7,7 @@ import CountAnimation from "@/components/ui/CountAnimation";
 import SlideLayout from "@/components/ui/SlideLayout";
 
 const capabilities = [
-  { value: "3", label: "Business Units", numericEnd: 3 },
+  { value: "3", label: "Core Modules", numericEnd: 3 },
   { value: "5", label: "User Roles", numericEnd: 5 },
   { value: "24/7", label: "AI Voice" },
   { value: "100%", label: "Mobile-Ready" },

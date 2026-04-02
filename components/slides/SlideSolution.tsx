@@ -14,7 +14,7 @@ const pillars = [
   {
     icon: "🏗️",
     title: "Your Team",
-    subtitle: "KEY TRADE SOLUTIONS",
+    subtitle: "MANAGE YOUR CREW",
     bullets: [
       "1099 contractor network management",
       "AI-powered crew recommendations",
@@ -24,7 +24,7 @@ const pillars = [
   {
     icon: "🔨",
     title: "Your Jobs",
-    subtitle: "KEY RENOVATIONS",
+    subtitle: "TRACK EVERY PROJECT",
     bullets: [
       "Full job lifecycle (8 stages)",
       "Digital contracts & e-signatures",
@@ -34,7 +34,7 @@ const pillars = [
   {
     icon: "📈",
     title: "Your Leads",
-    subtitle: "KEYNOTE DIGITAL",
+    subtitle: "CAPTURE EVERY LEAD",
     bullets: [
       "Multi-source lead management",
       "AI call analysis & lead scoring",
